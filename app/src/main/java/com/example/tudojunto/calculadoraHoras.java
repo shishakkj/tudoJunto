@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class calculadoraHoras extends Fragment {
     Button somar, subtrair;
@@ -47,26 +48,63 @@ public class calculadoraHoras extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v =  inflater.inflate(R.layout.fragment_calculadora_horas, container, false);
+        View v = inflater.inflate(R.layout.fragment_calculadora_horas, container, false);
+        horaInicial = v.findViewById(R.id.horaInicial);
+        minutoInicial = v.findViewById(R.id.minutoInicial);
+        horaFinal = v.findViewById(R.id.horaFinal);
+        minutoFinal = v.findViewById(R.id.minutoFinal);
+        resultadoHora = v.findViewById(R.id.resultadoHora);
+        resultadoMinuto = v.findViewById(R.id.resultadoMinuto);
         somar = v.findViewById(R.id.botaoSoma);
         subtrair = v.findViewById(R.id.botaoSub);
-
-
-
+        somar.setOnClickListener(sla -> soma());
+        subtrair.setOnClickListener(sla -> subtracao());
         return v;
     }
-    public void soma(){
-            int hi = Integer.parseInt(horaInicial.getText().toString());
-            int mi = Integer.parseInt(minutoInicial.getText().toString());
-            int hf = Integer.parseInt(horaFinal.getText().toString());
-            int mf = Integer.parseInt(minutoFinal.getText().toString());
-            int rh = hi + hf;
-            int rm = mi + mf;
-            while (rm > 59) {
-                rm -= 60;
-                rh++;
+
+    public void soma() {
+        int hi = Integer.parseInt(horaInicial.getText().toString());
+        int mi = Integer.parseInt(minutoInicial.getText().toString());
+        int hf = Integer.parseInt(horaFinal.getText().toString());
+        int mf = Integer.parseInt(minutoFinal.getText().toString());
+        int rhi = hi + hf;
+        int rmi = mi + mf;
+        while (rmi > 59) {
+            rmi -= 60;
+            rhi++;
+        }
+        String resultadoH = String.valueOf(rhi);
+        String resultadoM = String.valueOf(rmi);
+
+        resultadoHora.setText(resultadoH);
+        resultadoMinuto.setText(resultadoM);
+    }
+
+
+        public void subtracao() {
+            try {
+                int horaInicialInt = Integer.parseInt(horaInicial.getText().toString());
+                int horaFinalInt = Integer.parseInt(horaFinal.getText().toString());
+                int minutoInicialInt = Integer.parseInt(minutoInicial.getText().toString());
+                int minutoFinalInt = Integer.parseInt(minutoFinal.getText().toString());
+
+                int resultadoMinInt = minutoInicialInt - minutoFinalInt;
+                int resultadoHoraInt = horaInicialInt - horaFinalInt;
+
+                while (resultadoMinInt > 59) {
+                    resultadoMinInt -= 60;
+                    resultadoHoraInt++;
+                }
+                String resultadoH = String.valueOf(resultadoHoraInt);
+                String resultadoMin = String.valueOf(resultadoMinInt);
+
+                resultadoMinuto.setText(resultadoMin);
+                resultadoHora.setText(resultadoH);
+
+            } catch (Exception e) {
+                Toast.makeText(getContext(), "Algo deu errado", Toast.LENGTH_SHORT).show();
             }
-            resultadoHora.setText(rh);
-            resultadoMinuto.setText(rm);
         }
     }
+
+
