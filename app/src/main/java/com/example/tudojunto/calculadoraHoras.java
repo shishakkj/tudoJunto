@@ -63,37 +63,60 @@ public class calculadoraHoras extends Fragment {
     }
 
     public void soma() {
-        int hi = Integer.parseInt(horaInicial.getText().toString());
-        int mi = Integer.parseInt(minutoInicial.getText().toString());
-        int hf = Integer.parseInt(horaFinal.getText().toString());
-        int mf = Integer.parseInt(minutoFinal.getText().toString());
-        int rhi = hi + hf;
-        int rmi = mi + mf;
-        while (rmi > 59) {
-            rmi -= 60;
-            rhi++;
-        }
-        String resultadoH = String.valueOf(rhi);
-        String resultadoM = String.valueOf(rmi);
+        try {
 
-        resultadoHora.setText(resultadoH);
-        resultadoMinuto.setText(resultadoM);
+            int hi = Integer.parseInt(horaInicial.getText().toString());
+            int mi = Integer.parseInt(minutoInicial.getText().toString());
+            int hf = Integer.parseInt(horaFinal.getText().toString());
+            int mf = Integer.parseInt(minutoFinal.getText().toString());
+            int rhi = hi + hf;
+            int rmi = mi + mf;
+            while (rmi > 59) {
+                rmi -= 60;
+                rhi++;
+            }
+            String resultadoH = String.valueOf(rhi);
+            String resultadoM = String.valueOf(rmi);
+
+            resultadoHora.setText(resultadoH);
+            resultadoMinuto.setText(resultadoM);
+        }
+        catch (Exception e){
+            Toast.makeText(getContext(), "Algo deu errado", Toast.LENGTH_SHORT).show();
+        }
     }
 
-
-        public void subtracao() {
+    public void subtracao() {
             try {
+
                 int horaInicialInt = Integer.parseInt(horaInicial.getText().toString());
                 int horaFinalInt = Integer.parseInt(horaFinal.getText().toString());
                 int minutoInicialInt = Integer.parseInt(minutoInicial.getText().toString());
                 int minutoFinalInt = Integer.parseInt(minutoFinal.getText().toString());
 
-                int resultadoMinInt = minutoInicialInt - minutoFinalInt;
-                int resultadoHoraInt = horaInicialInt - horaFinalInt;
+                while (horaInicialInt >= 1 && minutoInicialInt == 0) {
+                    if (minutoFinalInt >= 1) {
+                        minutoFinalInt = Math.abs(minutoFinalInt - 60);
+                        horaInicialInt--;
+                    }
+                }
 
-                while (resultadoMinInt > 59) {
+                while (horaFinalInt >= 1 && minutoFinalInt == 0) {
+                    if (minutoInicialInt >= 1) {
+                        minutoInicialInt = Math.abs(minutoInicialInt - 60);
+                        horaFinalInt--;
+                    }
+                }
+
+                int resultadoMinInt = Math.abs(minutoInicialInt - minutoFinalInt);
+                int resultadoHoraInt = Math.abs(horaInicialInt - horaFinalInt);
+
+                while (resultadoMinInt >= 60) {
                     resultadoMinInt -= 60;
-                    resultadoHoraInt++;
+                    resultadoHoraInt--;
+                }
+                if (resultadoHoraInt < 0) {
+                    resultadoHoraInt = resultadoHoraInt * -1;
                 }
                 String resultadoH = String.valueOf(resultadoHoraInt);
                 String resultadoMin = String.valueOf(resultadoMinInt);
@@ -106,5 +129,7 @@ public class calculadoraHoras extends Fragment {
             }
         }
     }
+
+
 
 
