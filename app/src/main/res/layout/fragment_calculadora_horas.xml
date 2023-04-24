@@ -19,17 +19,16 @@
             android:hint="Minuto inicial"
             android:inputType="number"
             android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/horaInicial"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.88"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/horaInicial"
             android:layout_width="138dp"
             android:layout_height="49dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:fontFamily="@font/nunito_sans"
             android:hint="Hora inicial"
@@ -39,8 +38,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.12"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/minutoFinal"
@@ -51,17 +50,16 @@
             android:hint="Minuto Final"
             android:inputType="number"
             android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/horaFinal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.88"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.53" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/horaFinal"
             android:layout_width="138dp"
             android:layout_height="49dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:fontFamily="@font/nunito_sans"
             android:hint="Hora final"
@@ -71,8 +69,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.12"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.53" />
+            app:layout_constraintTop_toBottomOf="@+id/horaInicial"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/botaoSub"
@@ -83,17 +81,16 @@
             android:onClick="subtrair"
             android:text="Subtrair"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/botaoSoma"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.868"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.84" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/botaoSoma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#00A584"
             android:fontFamily="@font/nunito_sans"
             android:onClick="somar"
@@ -101,10 +98,10 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintHorizontal_bias="0.145"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.84" />
+            app:layout_constraintTop_toBottomOf="@+id/resultadoHora"
+            app:layout_constraintVertical_bias="0.206" />
 
         <TextView
             android:id="@+id/titulo"
@@ -125,27 +122,29 @@
             android:id="@+id/resultadoHora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/nunito_sans"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.30"
+            app:layout_constraintHorizontal_bias="0.299"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.71000004" />
+            app:layout_constraintTop_toBottomOf="@+id/horaFinal"
+            app:layout_constraintVertical_bias="0.110000014" />
 
         <TextView
             android:id="@+id/resultadoMinuto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/nunito_sans"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.60"
+            app:layout_constraintHorizontal_bias="0.605"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.71000004" />
+            app:layout_constraintTop_toBottomOf="@+id/minutoFinal"
+            app:layout_constraintVertical_bias="0.112" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 

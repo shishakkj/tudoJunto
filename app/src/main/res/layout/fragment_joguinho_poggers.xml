@@ -18,36 +18,37 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.634" />
+            app:layout_constraintTop_toBottomOf="@+id/confirma"
+            app:layout_constraintVertical_bias="0.48000002" />
 
         <TextView
             android:id="@+id/resultado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/nunito_sans"
             android:textAlignment="center"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/saidaTentativas"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.56" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/gera"
             android:layout_width="231dp"
             android:layout_height="52dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#CC5B5B"
             android:fontFamily="@font/nunito_sans"
             android:onClick="gerar"
             android:text="Gerar"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/resultado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.41000003" />
+            app:layout_constraintTop_toBottomOf="@+id/confirma"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/confirma"
@@ -61,8 +62,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.31" />
+            app:layout_constraintTop_toBottomOf="@+id/adivinhe"
+            app:layout_constraintVertical_bias="0.178" />
 
         <EditText
             android:id="@+id/adivinhe"
